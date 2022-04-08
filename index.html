@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karim Gheriani</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("7Mt7t5efQ8MOl-Snd");
+        })();
+    </script>
+</head>
+
+<body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <img id="personal-logo" src="./assets/Logo.png" alt="">
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+                        About
+                    </a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+                        Projects
+                    </a>
+                </li>
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+                        Contact
+                    </a>
+                </li>
+                <li class="nav__link click" onclick="toggleContrast()">
+                    <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black ">
+                        <i class="fas fa-adjust"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__content">
+                <h1 class="title">Hey</h1>
+                <h1 class="title blue"> I'm Karim.</h1>
+                <p class="header__para">
+                    I'm a second year at the University of Ottawa <b class="blue">studying software engineering</b> with a strong
+                    passion
+                    for building web applications with great user expriences.
+                    <br>
+                    Here's a bit more <b class="blue click" onclick="toggleModal()">about me.</b>
+                </p>
+                <div class="social__list">
+                    <a href="https://www.linkedin.com/in/karim-gheriani-256b501ba/" target="_blank"
+                        class="social__link click">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/karimo123" target="_blank" class="social__link click">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="./assets/CoopResume.pdf" target="_blank" class="social__link click">
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click ">
+                <i class="fas fa-envelope"></i>
+            </button>
+        </a>
+
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"> </div>
+        </a>
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">
+                    Here's a bit about me.
+                </h3>
+                <h4 class="modal__sub-title modal__sub-title--about">
+                    Studying Software Engineering at the University of Ottawa
+                </h4>
+                <p class="modal__para">
+                    I am a 19 year old <b class="blue">second year software engineering student</b> at the
+                    University of Ottawa. I have a strong passion for learning how to create websites with
+                    <b class="blue">great user expriences.</b> I currently am learning more <b class="blue">programming skills</b>
+                    to further better my knowledge.
+                    <br>
+                    Below is my technology stack, which I have exprience in and am familar with.
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img class="modal__language--img" src="./assets/HTML.png" alt="">
+                        <span class="language__name">HTML5</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img" src="./assets/CSS2.png" alt="">
+                        <span class="language__name">CSS3</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img" src="./assets/javascript.webp" alt="">
+                        <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img" src="./assets/java.png" alt="">
+                        <span class="language__name">Java</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img python--img" src="./assets/Python.png" alt="">
+                        <span class="language__name">Python</span>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat
+                </h3>
+                <h4 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently open to new opportunities.
+                </h4>
+
+                <form onsubmit="contact(event)" id="contact__form">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input type="text" name="user_name" class="input" required> </input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Email</label>
+                        <input type="email" name="user_email" class="input" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea type="text" name="message" class="input" required> </textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">
+                        Send it my way
+                    </button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! Looking forward to speaking to you soon.
+                </div>
+            </div>
+        </div>
+        <img src="./assets/semi circle.svg" class="shape shape--0">
+        <img src="./assets/circle.svg" class="shape shape--1">
+        <img src="./assets/squiggly.svg" class="shape shape--2">
+        <img src="./assets/circle.svg" class="shape shape--3">
+        <img src="./assets/triangle.svg" class="shape shape--4">
+        <img src="./assets/circle.svg" class="shape shape--5">
+        <img src="./assets/squiggly.svg" class="shape shape--6">
+        <img src="./assets/circle.svg" class="shape shape--7">
+        <img src="./assets/semi circle.svg" class="shape shape--8">
+
+    </section>
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">
+                    Here are some of my <span class="blue">Projects</span>
+                </h1>
+                <ul class="projects__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/Project3.png" class="project__img" alt="">
+                            <div class="project__wrapper--bg">
+
+                            </div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">
+                                    Library E-Commerce
+                                </h3>
+                                <h4 class="project__description--sub-title">
+                                    Html, Css, JavaScript
+                                </h4>
+                                <p class="project__description--para">
+                                   This is a website I created that sells books. Everything is functional up until
+                                   the part of actually receiving the book and paying for it. 
+                                   <br> 
+                                   Click on the Github Icon for the websites code and on the link for the website.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="https://github.com/karimo123/E-Commerce-Library" target="_blank" class="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://karimo123.github.io/E-Commerce-Library/" target="_blank" class="project__description--link">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/Project2.svg" class="project__img" alt="">
+                            <div class="project__wrapper--bg">
+
+                            </div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">
+                                    Current EPortfolio
+                                </h3>
+                                <h4 class="project__description--sub-title">
+                                    Html, Css, JavaScript
+                                </h4>
+                                <p class="project__description--para">
+                                   This is my current EPortfolio. Created using HTML, CSS, and JavaScript.
+                                   I will continue to update this EPortfolio with other projects.
+                                   <br>
+                                   Click on the Github Icon for the websites code.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="" class="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="" class="project__description--link">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/project1.png" class="project__img" alt="">
+                            <div class="project__wrapper--bg">
+
+                            </div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">
+                                    Old EPortfolio
+                                </h3>
+                                <h4 class="project__description--sub-title">
+                                    Html, Css
+                                </h4>
+                                <p class="project__description--para">
+                                    This was my first ever EPortfolio. It was created using HTML and CSS since
+                                    I haven't learnt javascript at that time. I don't update it anymore.
+                                    <br>
+                                    Click on the github icon for the websites code and the link for the website itself.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="https://github.com/karimo123/Old-EPortfolio" target="_blank"
+                                        class="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://karimo123.github.io/Old-EPortfolio/" target="_blank"
+                                        class="project__description--link">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container ">
+            <div class="row footer__row">
+
+                <figure>
+                    <img class="footer__logo--img" src="./assets/Logo.png" alt="">
+                </figure>
+                <div class="footer__social--list">
+                    <a href="https://github.com/karimo123" target="_blank"
+                        class="footer__social--link link__hover-effect link__hover-effect--white">
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/karim-gheriani-256b501ba/" target="_blank"
+                        class="footer__social--link link__hover-effect link__hover-effect--white">
+                        linkedIn
+                    </a>
+                    <a href="#" class="footer__social--link link__hover-effect link__hover-effect--white "
+                        onclick="toggleModal()">
+                        Contact
+                    </a>
+                    <a href="./assets/CoopResume.pdf" target="_blank"
+                        class="footer__social--link link__hover-effect link__hover-effect--white">
+                        Resume
+                    </a>
+                </div>
+
+                <div class="footer__copyright">Made By Karim Gheriani </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+<script src="index.js"></script>
+
+</html>
